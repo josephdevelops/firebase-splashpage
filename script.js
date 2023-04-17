@@ -35,7 +35,7 @@ var email, password, signupEmail, signupPassword, confirmSignupEmail, confirmSig
 
 //joe code
 
-const auth = firebase.auth();
+//const auth = firebase.auth();
 
 resetPasswordFunction = () => {
   const email = mailField.value
