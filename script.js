@@ -33,6 +33,19 @@ const returnBtn = document.getElementById("return-btn");
 
 var email, password, signupEmail, signupPassword, confirmSignupEmail, confirmSignUpPassword;
 
+//joe code
+
+const auth = firebase.auth();
+
+resetPasswordFunction = () => {
+  const email = mailField.value
+  
+  sendPasswordEmail(email)  }
+
+resetPassword.addEventListener("click", resetPasswordFunction);
+
+//end joe code
+
 createacctbtn.addEventListener("click", function() {
   var isVerified = true;
 
