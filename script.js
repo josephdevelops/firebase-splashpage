@@ -1,6 +1,6 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-analytics.js";
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+import { initializeApp } from "firebase-app.js";
+import { getAnalytics } from "firebase-analytics.js";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase-auth.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAQIVx0jJ7NmmC5tVFc7KjgzvYnnqG1RR0",
@@ -35,11 +35,11 @@ var email, password, signupEmail, signupPassword, confirmSignupEmail, confirmSig
 
 //joe code
 
-//const auth = firebase.auth();
+//const firebaseAuth = firebase.auth();
 
 resetPasswordFunction = () => {
   const email = mailField.value
-  
+
   sendPasswordEmail(email)  }
 
 resetPassword.addEventListener("click", resetPasswordFunction);
@@ -62,16 +62,16 @@ createacctbtn.addEventListener("click", function() {
       window.alert("Password fields do not match. Try again.")
       isVerified = false;
   }
-  
+
   if(signupEmail == null || confirmSignupEmail == null || signupPassword == null || confirmSignUpPassword == null) {
     window.alert("Please fill out all required fields.");
     isVerified = false;
   }
-  
+
   if(isVerified) {
     createUserWithEmailAndPassword(auth, signupEmail, signupPassword)
       .then((userCredential) => {
-      // Signed in 
+      // Signed in
       const user = userCredential.user;
       // ...
       window.alert("Success! Account created.");
