@@ -2,28 +2,79 @@
 <html>
 <head>
   <title>Login</title>
+
+  <style> 
+
+   
+@font-face {
+	font-family: 'sunday';
+	src: url('https://mauigamestudio.com/fonts/SUNDAY.eot'); /* IE9 Compat Modes */
+	src: url('https://mauigamestudio.com/fonts/SUNDAY.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	     url('https://mauigamestudio.com/fonts/SUNDAY.woff') format('woff'), /* Modern Browsers */
+	     url('https://mauigamestudio.com/fonts/SUNDAY.ttf')  format('truetype'), /* Safari, Android, iOS */
+	     url('https://mauigamestudio.com/fonts/SUNDAY.svg#svgFontName') format('svg'); /* Legacy iOS */
+	}
+  body {
+
+	font-family:'sunday';font-weight:500;
+    background-color:rgba(255, 57, 0, 1);
+    display:flex;
+    justify-content:center;
+    align-content:center;    
+    min-height: 95vh;
+  }
+  #maindiv {
+    display: flex;
+    align-self:center;
+    justify-self:center;
+  }
+  #innerdiv, #innerdivleft {
+    
+    background-color:rgb(255, 255, 255);
+
+    
+    align-content:space-around;
+    justify-content:space-around;
+    
+
+  }
+  #innerdiv {
+    padding:2vw;
+    padding-right:4vw;
+  }
+
+
+  </style>
 </head>
 <body>
 
-      <h1>Sign In</h1>
+<div id="maindiv">
+  <div id="innerdivleft">
+    <img src="https://mauigamestudio.com/wp-content/uploads/2022/09/Maui-Game-Studio-logo-Converted.png">
+  </div>
+  <div id="innerdiv">
+    <h1>Account Management</h1>
+    <h2>Stormers and Familia</h2>
+    <hr>
+      <h3>Sign In</h3>
       <input id = "email" type = "text" placeholder = "Email"></input>
       <input id = "password" type = "password" placeholder = "Password"></input>
-  <P>Forgot password?</p>
       <button id = "submit">Submit</button>
-      <p><span>or</span></p>
-      <button id = "sign-up">Sign Up</button>
  
-      <h1>Create an Account</h1>
+      <h3>Create an Account</h3>
       <input id = "email-signup" type = "text" placeholder = "Email *"></input>
-  <input id = "confirm-email-signup" type = "email" placeholder = "Confirm Email *"></input>
+      <input id = "confirm-email-signup" type = "email" placeholder = "Confirm Email *"></input>
+      <br>
       <input id = "password-signup" type = "password" placeholder = "Password *"></input>
       <input id = "confirm-password-signup" type = "password" placeholder = "Confirm Password *"></input>
       <button id = "create-acct-btn">Create Account</button>
 
-      <h1>Recover Password</h1>
-      <input id = "recover-password" type = "password" placeholder = "Recover Password"></input>
-      <button id = "recover-submit">Recover Password</button>
+      <h3>Recover Password</h3>
+      <input id = "reset-password-email" type = "email" placeholder = "Email"></input>
+      <button id = "reset-password-button">Recover Password</button>
 
   <script type = "module" src = "script.js"></script>
+  </div>
+</div>
 </body>
 </html>

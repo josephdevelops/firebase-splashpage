@@ -3,7 +3,7 @@ import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.10/firebase
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword,sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCybmXAUWgGDCMNQWvcRdaMgE31I1GkF8M",
+  apiKey: "AIzaSyAQIVx0jJ7NmmC5tVFc7KjgzvYnnqG1RR0",
   authDomain: "log-in-authentication-ac1b6.firebaseapp.com",
   projectId: "log-in-authentication-ac1b6",
   storageBucket: "log-in-authentication-ac1b6.appspot.com",
@@ -17,11 +17,8 @@ const analytics = getAnalytics(app);
 const auth = getAuth(app);
 
 const submitButton = document.getElementById("submit");
-const signupButton = document.getElementById("sign-up");
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
-const main = document.getElementById("main");
-const createacct = document.getElementById("create-acct")
 
 const signupEmailIn = document.getElementById("email-signup");
 const confirmSignupEmailIn = document.getElementById("confirm-email-signup");
@@ -29,9 +26,20 @@ const signupPasswordIn = document.getElementById("password-signup");
 const confirmSignUpPasswordIn = document.getElementById("confirm-password-signup");
 const createacctbtn = document.getElementById("create-acct-btn");
 
-const returnBtn = document.getElementById("return-btn");
+//reset password stuff
 
-var email, password, signupEmail, signupPassword, confirmSignupEmail, confirmSignUpPassword;
+const resetPasswordEmailInput = document.getElementById("reset-password-email");
+const resetPasswordButton = document.getElementById("reset-password-button");
+
+//end reset password stuff
+
+var email, password, signupEmail, signupPassword, confirmSignupEmail, confirmSignUpPassword
+
+//mauicode
+, resetPasswordEmail
+//end mauicode
+
+;
 
 createacctbtn.addEventListener("click", function() {
   var isVerified = true;
@@ -94,23 +102,24 @@ submitButton.addEventListener("click", function() {
     });
 });
 
-signupButton.addEventListener("click", function() {
-    main.style.display = "none";
-    createacct.style.display = "block";
-});
+//maui code
 
-returnBtn.addEventListener("click", function() {
-    main.style.display = "block";
-    createacct.style.display = "none";
-});
+resetPasswordButton.addEventListener("click", function() {
+  resetPasswordEmail = resetPasswordEmailInput.value;
+  console.log(resetPasswordEmail);
 
-sendPasswordResetEmail(auth, email)
-  .then(() => {
-    // Password reset email sent!
-    // ..
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // ..
-  });
+  sendPasswordResetEmail(auth, resetPasswordEmail)
+    .then(() => {
+      // Password reset email sent!
+      console.log("Success! Request sent to server!");
+      window.alert("Success! Request sent to server");
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      
+      console.log("Error occurred. Try again.");
+      window.alert("Error code : " + error.code + " : " + error.message);
+      // ..
+    });
+});
